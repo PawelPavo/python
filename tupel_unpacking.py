@@ -40,6 +40,5 @@ print(employee_check(work_hours))
 #to deal with it, assign the whole tuple to a value and see what you get
 
 name,hours = employee_check(work_hours)
-
 print(name)
 print(hours)
