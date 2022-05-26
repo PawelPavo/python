@@ -94,21 +94,44 @@ print('NEXT QUESTION')
 
 
 def summer_69(nums):
-    x=range(6,10)
-    for i in x:
-        for z in nums:
-            if i == z:
-                print(i, z)
+    my_list=[]
+    for i in nums:
+        if i in range(6,10):
+            continue
+        else:
+            my_list.append(i)
+    return(sum(my_list))
+        
+print(summer_69([1, 3, 5]))
+print(summer_69([4, 5, 6, 7, 8, 9])) 
+print(summer_69([2, 1, 6, 9, 11]))
+print(summer_69([2, 1, 6, 8, 9, 11]))
 
 
-summer_69([1, 3, 5])
-summer_69([4, 5, 6, 7, 8, 9]) 
-summer_69([2, 1, 6, 9, 11])
+#solution
 
+def summer_69_solution(arr):
+    total=0
+    add=True
+    for num in arr:
+        while add:
+            if num!=6:
+                total+=num
+                break
+            else:
+                add=False
+        while not add:
+            if num !=9:
+                break
+            else:
+                add=True
+                break
+    return total
 
-
-
-
+print(summer_69_solution([1, 3, 5]))
+print(summer_69_solution([4, 5, 6, 7, 8, 9])) 
+print(summer_69_solution([2, 1, 6, 9, 11]))
+print(summer_69_solution([2, 1, 6, 8, 9, 11]))
 
 
 
