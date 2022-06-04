@@ -1,27 +1,32 @@
-from random import randint
+from random import choice
 
+print('Welcome to Tic Tac Toe?')
 board=[' ',' ',' ',' ',' ',' ',' ',' ',' ']
-#board=[' ',' ','X',' ','X',' ','X',' ',' ']
-P1=''
-P2=''
-current_player=0
-
-def player_input():
-    marker='WRONG'
-    markers=['X','O']
-    while marker.upper() not in markers:
-        marker = input('Please enter X or O: ')
-        if marker.upper() not in markers:
-            print(f'Sorry, {marker} is not a valide choice!')
-    return marker.upper()
-
-marker=player_input()
-
+turn=0
 def choose_first():
-    current_player = randint(1, 2)
-    print("Player {} will go first.".format(current_player))
+    player_1= choice([1,2])
+    print("Player {} will go first.".format(player_1))
+    return player_1
 
-choose_first()
+player_1=choose_first()
+
+def choose_marker(player_1):
+        marker='WRONG'
+        markers=['X','O']
+        while marker.upper() not in markers:
+            marker = input('Please select X or O: ')
+            if marker.upper() not in markers:
+                print(f'Sorry, {marker} is not a valide choice!')
+        if marker.upper() == 'X':
+            player_1 = 'X'
+            player_2 = 'O'
+        else:
+            player_1 = 'O'
+            player_2 = 'X'
+        return player_1,player_2
+
+
+marker=list(choose_marker(player_1))
 
 def display_board(board):
     print(board[0]+'|'+ board[1]+'|'+ board[2])
@@ -54,18 +59,22 @@ def position_choice():
             else:
                 within_range=False
                 print('Please enter a valid position on the board!')
-                continue
-            
+                continue      
         return int(position)
 
 def place_marker(board,marker,position):
-    board[position-1] = marker
+    global turn
+    if turn%2==0:
+        board[position] = marker[0]
+    else:
+        board[position] = marker[1]
     display_board(board)
-
+    turn+=1
+  
 def space_check(board, position):
-    if board[position-1]=='X' or board[position-1]=='O':
+    if board[position]=='X' or board[position]=='O':
         print('Sorry, this position is taken.')
-
+        
 def full_board_check(board):
     for space in board:
         if space == ' ':
@@ -96,21 +105,3 @@ while not full_board_check(board):
     place_marker(board,marker,position)
     if win_check(board,marker)== True:
         break
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
