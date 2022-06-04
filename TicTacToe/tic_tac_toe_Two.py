@@ -70,10 +70,11 @@ def place_marker(board,marker,position):
         board[position] = marker[1]
     display_board(board)
     turn+=1
+    print(turn)
   
 def space_check(board, position):
     if board[position]=='X' or board[position]=='O':
-        print('Sorry, this position is taken.')
+        return True
         
 def full_board_check(board):
     for space in board:
@@ -82,26 +83,30 @@ def full_board_check(board):
     return True
 
 def win_check(board,marker):
-    winner=[]
-    win_combos={'combo1':[0,1,2],
-                'combo2':[3,4,5],
-                'combo3':[6,7,8],
-                'combo4':[0,3,6],
-                'combo5':[1,4,7],
-                'combo6':[2,5,8],
-                'combo7':[6,4,2],
-                'combo8':[0,4,8]}
-    for index,char in enumerate(board):
-        if char == marker:
-            winner.append(index)
-            for win in win_combos.values():
-                if winner == win:
-                    print(f'{marker} is the winner!')
-                    return True
+    return((board[1]==marker and board[2]== marker and board[3]==marker )or #for row1 
+
+            (board[4]==marker and board[5]==marker and board[6]==marker )or #for row2
+
+            (board[7]==marker and board[8]==marker and board[9]==marker )or #for row3
+
+            (board[1]==marker and board[4]==marker and board[7]== marker )or#for Colm1 
+
+            (board[2]==marker and board[5]==marker and board[8]==marker )or #for Colm 2
+
+            (board[3]==marker and board[6]==marker and board[9]==marker )or #for colm 3
+
+            (board[1]==marker and board[5]==marker and board[9]==marker )or #daignole 1
+
+            (board[3]==marker and board[5]==marker and board[7]==marker )) #daignole 2
+
 
 while not full_board_check(board):
     position=position_choice()
-    space_check(board,position)
-    place_marker(board,marker,position)
-    if win_check(board,marker)== True:
+    if space_check(board,position):
+        print('Sorry, this position is taken.')
+    else:
+        place_marker(board,marker,position)
+    if win_check(board,marker)== True or turn==9:
+        if turn ==9:
+            print('DRAW!')            
         break
