@@ -20,6 +20,12 @@ class Line:
     def slope(self):
         return (self.coor2[1]-self.coor1[1])/(self.coor2[0]-self.coor1[0])
 
+    # tuple unpacking
+
+    def slope_tuple_unpacking(self):
+        x1,y1=self.coor1
+        x2,y2=self.coor2
+        return (y2-y1)/(x2-x1)
     
 # EXAMPLE OUTPUT
 
@@ -32,6 +38,8 @@ print(li.distance())
 print(li.distance_tuple_unpacking())
 
 print(li.slope())
+
+print(li.slope_tuple_unpacking())
 
 
 # Problem 2
