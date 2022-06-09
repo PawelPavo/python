@@ -34,11 +34,8 @@ coordinate2 = (8,10)
 
 li = Line(coordinate1,coordinate2)
 print(li.distance())
-
 print(li.distance_tuple_unpacking())
-
 print(li.slope())
-
 print(li.slope_tuple_unpacking())
 
 
