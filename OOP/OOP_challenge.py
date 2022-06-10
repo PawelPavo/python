@@ -18,12 +18,6 @@ class Account():
         self.owner=owner
         self.balance=balance
 
-    def owner(self):
-        return self.owner
-
-    def balance(self):
-        return self.balance
-
     def balance(self):
         print(self.balance)
     
@@ -34,7 +28,7 @@ class Account():
     
     def withdraw(self, amount):
         if self.balance < amount:
-            print('Fundes unavailable!')
+            print('Funds unavailable!')
         else:
             self.balance = self.balance-amount
             print(f'Your new balance is ${acct1.balance}')
