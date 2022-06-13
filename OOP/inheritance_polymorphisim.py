@@ -1,3 +1,4 @@
+
 # INHERITANCE
 
 class Animal():
@@ -25,7 +26,7 @@ myanimal.eat()
 mydog=Dog()
 mydog.eat()
 mydog.bark()
-#https://www.udemy.com/course/complete-python-bootcamp/learn/lecture/9478298?start=15#questions
+
 
 # POLYMORPHYSIM
 

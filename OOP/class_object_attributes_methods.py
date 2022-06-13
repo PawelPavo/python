@@ -31,10 +31,10 @@ class Circle():
 
     def __init__(self,radius=1): # we gave radious default value just in case nothing is passed
         self.radius=radius
-        self.area = radius*radius*self.pi #self.area = radius*radius*Circle.pi
+        self.area = radius*radius*self.pi #self.area = radius*radius*Circle.pi - ONLY FOR CLASS OBJECT DIRECT ATTR
     # METHOD
     def get_circumference(self):
-        return self.radius * self.pi * 2 # Circle.radius * Circle.pi * 2 
+        return self.radius * self.pi * 2 # self.radius * Circle.pi * 2 
 
 my_circle = Circle()
 print(my_circle.get_circumference())
