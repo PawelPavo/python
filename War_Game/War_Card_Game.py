@@ -105,5 +105,3 @@ print(new_player)
 new_player.remove_one()
 print(new_player)
 '''
-
-
