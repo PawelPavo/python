@@ -105,3 +105,83 @@ print(new_player)
 new_player.remove_one()
 print(new_player)
 '''
+
+
+# GAME LOGIC
+
+# Creating Players with names
+player_one = Player("One")
+player_two = Player("Two")
+
+# Creating new Deck and shuffling it
+new_deck = Deck()
+new_deck.shuffle_deck()
+
+# splitting the deck between two players - its 26 becasue two cards are delt at a time - one for each player
+for x in range(26):
+    player_one.add_cards(new_deck.deal_one())
+    player_two.add_cards(new_deck.deal_one())
+
+# Setting a variables for while loops
+game_on=True
+round_num=0
+
+
+# LOGIC FOR GAME
+# While the game is on - each player plays one card
+
+while game_on:
+
+    # tells you which round players are on
+    round_num +1 
+    print(f'Round {round_num}') 
+
+    # CHECKING FOR WIN
+    # Checking if Player One is out of cards
+    if len(player_one.all_cards)==0:
+        print('Player One, out of cards! Player Two is the winner!')
+        game_on=False
+        break
+    # Checking if Player Two is out of cards
+    if len(player_two.all_cards)==0:
+        print('Player Two, out of cards! Player One is the winner!')
+        game_on=False
+        break
+
+    # START NEW ROUND
+
+    # current cards the players have played in the round
+    player_one_cards=[]
+    player_one_cards.append(player_one.remove_one()) # removes the card from ALL CARDS and adds it to the CARDS PLAYED list
+    
+    player_two_cards=[]
+    player_two_cards.append(player_two.remove_one()) # removes the card from ALL CARDS and adds it to the CARDS PLAYED list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
