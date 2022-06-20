@@ -1,3 +1,5 @@
+# This is war game
+
 # CARD CLASS
 # SUIT, RANK, VALUE
 import random
