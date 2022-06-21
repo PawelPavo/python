@@ -182,14 +182,14 @@ while game_on:
             # Checking if P1 has enough cards for war
             if len(player_one.all_cards) < 5:
                 print('Player One does not have enough cards to battle!')
-                print('Player One WINS!')
+                print('Player Two WINS!')
                 game_on=False
                 break
             
             # Checking if P2 has enough cards for war
             if len(player_two.all_cards) < 5:
                 print('Player Two does not have enough cards to battle!')
-                print('Player Two WINS!')
+                print('Player One WINS!')
                 game_on=False
                 break
 
