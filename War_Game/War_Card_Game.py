@@ -135,7 +135,7 @@ round_num=0
 while game_on:
 
     # tells you which round players are on
-    round_num +1 
+    round_num+=1 
     print(f'Round {round_num}') 
 
     # CHECKING FOR WIN
@@ -151,7 +151,6 @@ while game_on:
         break
 
     # START NEW ROUND
-
     # current cards the players have played in the round
     player_one_cards=[]
     player_one_cards.append(player_one.remove_one()) # removes the card from ALL CARDS and adds it to the CARDS PLAYED list
@@ -159,13 +158,46 @@ while game_on:
     player_two_cards=[]
     player_two_cards.append(player_two.remove_one()) # removes the card from ALL CARDS and adds it to the CARDS PLAYED list
 
+# LOGIC TO COMPARE P1 > P2, P1 < P2, P1==P2
+    at_war = True
 
+    while at_war:
+        # checking P1 is the winner
+        if player_one_cards[-1].value > player_two_cards[-1].value:
+            # adding cards from the table to player one after a win
+            player_one.add_cards(player_one_cards)
+            player_one.add_cards(player_two_cards)
+            at_war=False
 
+        # checking P1 is the winner
+        elif player_one_cards[-1].value < player_two_cards[-1].value:
+            # adding cards from the table to player two after a win
+            player_two.add_cards(player_two_cards)
+            player_two.add_cards(player_one_cards)
+            at_war=False
 
+        else:
+            print('WAR!')
 
+            # Checking if P1 has enough cards for war
+            if len(player_one.all_cards) < 5:
+                print('Player One does not have enough cards to battle!')
+                print('Player One WINS!')
+                game_on=False
+                break
+            
+            # Checking if P2 has enough cards for war
+            if len(player_two.all_cards) < 5:
+                print('Player Two does not have enough cards to battle!')
+                print('Player Two WINS!')
+                game_on=False
+                break
 
-
-
+            else:
+                for num in range(5):
+                    # removes the card from ALL CARDS and adds it to the CARDS PLAYED list 5 TIMES becasue of 5 cards draw
+                    player_one_cards.append(player_one.remove_one()) 
+                    player_two_cards.append(player_two.remove_one())
 
 
 
