@@ -75,25 +75,20 @@ class Hand:
             self.aces -= 1
         '''
 
+class Chips:
+    def __init__(self,total=100):
+        self.total=total # this can be adjusted to supplied value by user input
+        self.bet=0
+
+    def win_bet(self):
+        self.total+=self.bet
+
+    def lose_bet(self):
+        self.total+=self.bet
 
 
 
-'''
-# TEST
-test_deck=Deck()
-test_deck.shuffle()
 
-# Player
-test_player=Hand()
 
-# Deal 1 card from the deck CARD(suit,rank)
-deal_card=test_deck.deal()
-print(deal_card)
-test_player.add_card(deal_card)
-print(test_player.value)
-
-# add card other way - keeps adding card to a hand
-test_player.add_card(test_deck.deal())
-print(test_player.value)
-'''
-
+        
+    
