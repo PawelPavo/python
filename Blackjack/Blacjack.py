@@ -67,6 +67,17 @@ class Hand:
         while self.value > 21 and self.aces > 0:
             self.value -= 10
             self.aces -= 1
+
+        # using TRUTHY value 0
+        '''
+        while self.value > 21 and self.aces: # truthy value no need for >0
+            self.value -= 10
+            self.aces -= 1
+        '''
+
+
+
+
 '''
 # TEST
 test_deck=Deck()
