@@ -55,8 +55,18 @@ class Hand:
         # adjusting the value of self.value to see if its 21 or more
         self.value+=values[card.rank]
 
+        # track aces
+        if card.rank == "Ace":
+            self.aces+=1
+
     def adjust_for_ace(self):
-        pass
+        
+        # IF TOTAL VALUE > 21 AND I STILL HAVE AN ACE
+        # THEN CHANGE MY ACE TO BE A 1 INSTEAD OF 11
+        # SEE README.md
+        while self.value > 21 and self.aces > 0:
+            self.value -= 10
+            self.aces -= 1
 '''
 # TEST
 test_deck=Deck()
@@ -71,7 +81,7 @@ print(deal_card)
 test_player.add_card(deal_card)
 print(test_player.value)
 
-# add card other way
+# add card other way - keeps adding card to a hand
 test_player.add_card(test_deck.deal())
 print(test_player.value)
 '''
