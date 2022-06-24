@@ -23,14 +23,35 @@ class Card:
 
 class Deck:
     def __init__(self):
-        self.all_cards=[]
+        # start with an empty list
+        self.deck=[]
         for suit in suits:
             for rank in ranks:
-                created_card=Card(suit,rank)
-                self.all_cards.append(created_card)
+                # build Card objects and add them to the list
+                self.deck.append(Card(suit,rank))
     def shuffle(self):
-        random.shuffle(self.all_cards)
+        random.shuffle(self.deck)
 
     def deal(self):
-        return self.all_cards.pop()
+        return self.deck.pop()
 
+    def __str__(self):
+        # start with an empty string
+        deck_comp = ''
+        for card in self.deck:
+            # add each Card object's print string
+            deck_comp += '\n '+card.__str__()
+        return 'The deck has:' + deck_comp
+
+class Hand:
+    def __init__(self):
+        self.cards = []  # start with an empty list
+        self.value = 0   # start with zero value
+        self.aces = 0    # add an attribute to keep track of aces
+
+    def add_card(self,card):
+        self.cards.append(card)
+        self.value+=values[card.rank]
+
+    def adjust_for_ace(self):
+        pass
