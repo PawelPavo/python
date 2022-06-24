@@ -2,7 +2,7 @@
 
 # BLACKJACK
 # Switchicng Ace value explained
-##        Aces in Blackjack have 2 values 11 or 1, so if we have a self.value of over 21, and self.aces is at least 1, then we deduct 10 from the value, which means               the ace now as a value of 1
+###        Aces in Blackjack have 2 values 11 or 1, so if we have a self.value of over 21, and self.aces is at least 1, then we deduct 10 from the value, which means               the ace now as a value of 1
           If you have a value of less than 21, then the block of code will not run
           If you are over 21 and you still have an ace
           So lets say that you have 3 cards ace, ace and ace
