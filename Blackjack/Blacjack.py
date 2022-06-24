@@ -50,8 +50,29 @@ class Hand:
         self.aces = 0    # add an attribute to keep track of aces
 
     def add_card(self,card):
+        # the card passed in is from the Deck.deal() --> it gives us Card(suit,rank)
         self.cards.append(card)
+        # adjusting the value of self.value to see if its 21 or more
         self.value+=values[card.rank]
 
     def adjust_for_ace(self):
         pass
+'''
+# TEST
+test_deck=Deck()
+test_deck.shuffle()
+
+# Player
+test_player=Hand()
+
+# Deal 1 card from the deck CARD(suit,rank)
+deal_card=test_deck.deal()
+print(deal_card)
+test_player.add_card(deal_card)
+print(test_player.value)
+
+# add card other way
+test_player.add_card(test_deck.deal())
+print(test_player.value)
+'''
+
