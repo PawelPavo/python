@@ -14,3 +14,5 @@ letters='aaabbbbccccdddeee'
 
 c=Counter(letters)
 print(c.most_common(2))
+print(c)
+print(list(c))
