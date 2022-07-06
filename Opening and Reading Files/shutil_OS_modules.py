@@ -28,3 +28,6 @@ shutil.move('C:/Users/pjaskolski/Desktop/practice.txt','practice.txt')
 # Deleting a file
 # Check docs for 3 diffrent methods of deleting
 # ALTERNATIVELY use 'pip install send2trash'
+'''
+send2trash.send2trash('practice.txt')
+'''
