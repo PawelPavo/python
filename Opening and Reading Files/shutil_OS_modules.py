@@ -31,3 +31,16 @@ shutil.move('C:/Users/pjaskolski/Desktop/practice.txt','practice.txt')
 '''
 send2trash.send2trash('practice.txt')
 '''
+
+file_path='C:/Users/pjaskolski/Desktop/Python/Opening and Reading Files/Example_Top_Level'
+for folder, sub_folders, files in os.walk(file_path):
+    print(f'Currentlty lookig at {folder}')
+    print('\n')
+    print(f'The subfolders are: ')
+    for sub_fold in sub_folders:
+        print(f'\t Subfolders: {sub_fold}')
+    print('\n')
+    print(f'The files are: ')
+    for f in files:
+        print(f'\t Files: {f}')
+    print('\n')
