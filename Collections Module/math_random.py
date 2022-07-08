@@ -31,12 +31,14 @@ print(myval)
 print('========== SEED ==========')
 
 # SEED is to get the same number through random for testing or other
-'''
-random.seed(101) # this can be any num but coder use 101 cause its nice or 42 from Hitchhiker's guide to the galaxy
+
+# this can be any num but coder use 101 cause its nice or 42 from Hitchhiker's guide to the galaxy
+random.seed(101)
+
 print(random.randint(0,100))
 print(random.randint(0,100))
 print(random.randint(0,100))
-'''
+
 
 print('========= LIST RANDOM CHOICE =========')
 # Grabbing random object from the list
