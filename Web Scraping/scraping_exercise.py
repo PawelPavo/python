@@ -40,3 +40,21 @@ for tag in tags:
 # For debugging purposes, I will let you know that there are only 10 pages, so the last page is http://quotes.toscrape.com/page/10/, 
 # but try to create a loop that is robust enough that it wouldn't matter to know the amount of pages beforehand, perhaps use try/except for this, its up to you!
 
+page_num=1
+valid_page=True
+authors=set()
+
+while valid_page:
+    base_url=("http://quotes.toscrape.com/page/{}/")
+    scrape_url=base_url.format(page_num)
+    res=requests.get(scrape_url)
+    # print(scrape_url)
+    if "No quotes found!" in res.text:
+        # print('Page Not Found')
+        break
+    soup=bs4.BeautifulSoup(res.text,"lxml")
+    for author in soup.select('.author'):
+        authors.add(author.text)
+    page_num+=1
+
+print(authors)
